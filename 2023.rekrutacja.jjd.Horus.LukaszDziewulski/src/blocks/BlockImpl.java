@@ -1,11 +1,11 @@
 package blocks;
 
-public class Block implements interfaces.Block {
+public class BlockImpl implements interfaces.Block {
 
     private String color;
     private String material;
 
-    public Block(String color, String material) {
+    public BlockImpl(String color, String material) {
         this.color = color;
         this.material = material;
     }

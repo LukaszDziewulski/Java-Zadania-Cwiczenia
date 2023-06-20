@@ -5,13 +5,13 @@ import interfaces.CompositeBlock;
 
 import java.util.List;
 
-public class DualBlock implements CompositeBlock {
+public class DualBlockImpl implements CompositeBlock {
 
     private String color;
     private String material;
     private List<Block> blocks;
 
-    public DualBlock(String color, String material, List<Block> blocks) {
+    public DualBlockImpl(String color, String material, List<Block> blocks) {
         this.color = color;
         this.material = material;
         this.blocks = blocks;

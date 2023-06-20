@@ -1,5 +1,5 @@
-import blocks.Block;
-import blocks.DualBlock;
+import blocks.BlockImpl;
+import blocks.DualBlockImpl;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ public class TestClass {
 
     public static void main(String[] args) {
 
-        Block concreteBlock1 = new Block("red", "concrete");
-        Block concreteBlock2 = new Block("red", "concrete");
-        Block concreteBlock3 = new Block("blue", "concrete");
-        DualBlock dualConcreteBlock = new DualBlock("red", "concrete", List.of(concreteBlock1, concreteBlock2));
-        Block brickBlock1 = new Block("red", "brick");
-        Block brickBlock2 = new Block("green", "brick");
-        DualBlock dualBrickBlock = new DualBlock("blue", "concrete", List.of(brickBlock1, brickBlock2));
+        BlockImpl concreteBlock1 = new BlockImpl("red", "concrete");
+        BlockImpl concreteBlock2 = new BlockImpl("red", "concrete");
+        BlockImpl concreteBlock3 = new BlockImpl("blue", "concrete");
+        DualBlockImpl dualConcreteBlock = new DualBlockImpl("red", "concrete", List.of(concreteBlock1, concreteBlock2));
+        BlockImpl brickBlock1 = new BlockImpl("red", "brick");
+        BlockImpl brickBlock2 = new BlockImpl("green", "brick");
+        DualBlockImpl dualBrickBlock = new DualBlockImpl("blue", "concrete", List.of(brickBlock1, brickBlock2));
 
 
         Wall wall = new Wall(List.of(
