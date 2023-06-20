@@ -1,4 +1,3 @@
-import blocks.BlockImpl;
 import blocks.DualBlockImpl;
 
 import java.util.List;
@@ -7,22 +6,27 @@ public class TestClass {
 
     public static void main(String[] args) {
 
-        BlockImpl concreteBlock1 = new BlockImpl("red", "concrete");
-        BlockImpl concreteBlock2 = new BlockImpl("red", "concrete");
-        BlockImpl concreteBlock3 = new BlockImpl("blue", "concrete");
-        DualBlockImpl dualConcreteBlock = new DualBlockImpl("red", "concrete", List.of(concreteBlock1, concreteBlock2));
-        BlockImpl brickBlock1 = new BlockImpl("red", "brick");
-        BlockImpl brickBlock2 = new BlockImpl("green", "brick");
-        DualBlockImpl dualBrickBlock = new DualBlockImpl("blue", "concrete", List.of(brickBlock1, brickBlock2));
+        DualBlockImpl dualBlock1 = new DualBlockImpl("red", "concrete", List.of(
+                Wall.addBlock("red", "concrete"),
+                Wall.addBlock("blue", "concrete"),
+                Wall.addBlock("green", "concrete"),
+                Wall.addBlock("red", "brick"),
+                Wall.addBlock("blue", "brick"),
+                Wall.addBlock("green", "brick")
+        ));
+
+        DualBlockImpl dualBlock2 = new DualBlockImpl("blue", "brick", List.of(
+                Wall.addBlock("yellow", "concrete"),
+                Wall.addBlock("blue", "concrete"),
+                Wall.addBlock("pink", "concrete"),
+                Wall.addBlock("yellow", "brick"),
+                Wall.addBlock("blue", "brick"),
+                Wall.addBlock("pink", "brick")
+        ));
 
         Wall wall = new Wall(List.of(
-                brickBlock1,
-                brickBlock2,
-                concreteBlock1,
-                concreteBlock2,
-                concreteBlock3,
-                dualConcreteBlock,
-                dualBrickBlock
+                dualBlock1,
+                dualBlock2
         ));
 
         System.out.println(wall.findBlockByColor("red"));
