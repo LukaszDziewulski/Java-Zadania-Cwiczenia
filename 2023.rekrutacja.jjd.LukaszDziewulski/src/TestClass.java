@@ -1,4 +1,4 @@
-import blocks.DualBlockImpl;
+import blocks.MultiBlockImpl;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public class TestClass {
 
     public static void main(String[] args) {
 
-        DualBlockImpl dualBlock1 = new DualBlockImpl("red", "concrete", List.of(
+        MultiBlockImpl dualBlock1 = new MultiBlockImpl("red", "concrete", List.of(
                 Wall.addBlock("red", "concrete"),
                 Wall.addBlock("blue", "concrete"),
                 Wall.addBlock("green", "concrete"),
@@ -15,7 +15,7 @@ public class TestClass {
                 Wall.addBlock("green", "brick")
         ));
 
-        DualBlockImpl dualBlock2 = new DualBlockImpl("blue", "brick", List.of(
+        MultiBlockImpl dualBlock2 = new MultiBlockImpl("blue", "brick", List.of(
                 Wall.addBlock("yellow", "concrete"),
                 Wall.addBlock("blue", "concrete"),
                 Wall.addBlock("pink", "concrete"),

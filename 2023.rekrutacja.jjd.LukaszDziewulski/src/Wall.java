@@ -20,7 +20,7 @@ public class Wall implements Structure {
 
     @Override
     public Optional<Block> findBlockByColor(String color) {
-        return getBlockStream()
+        return getStream(compositeBlocks)
                 .flatMap(getCompositeBlockStreamFunction())
                 .filter(block -> block.getColor().equals(color))
                 .findFirst();
@@ -28,7 +28,7 @@ public class Wall implements Structure {
 
     @Override
     public List<Block> findBlocksByMaterial(String material) {
-        return getBlockStream()
+        return getStream(compositeBlocks)
                 .flatMap(getCompositeBlockStreamFunction())
                 .filter(block -> block.getMaterial().equals(material))
                 .toList();
@@ -39,7 +39,7 @@ public class Wall implements Structure {
         if (Objects.isNull(compositeBlocks)) {
             return 0;
         }
-        return getBlockStream()
+        return getStream(compositeBlocks)
                 .flatMap(getCompositeBlockStreamFunction())
                 .toList().size();
     }
@@ -52,10 +52,9 @@ public class Wall implements Structure {
         return compositeBlocks -> compositeBlocks.getBlocks().stream();
     }
 
-    private Stream<CompositeBlock> getBlockStream() {
-        return Stream.ofNullable(compositeBlocks)
+    private static <T> Stream<T> getStream(List<T> t) {
+        return Stream.ofNullable(t)
                 .flatMap(Collection::stream);
     }
-
 
 }
